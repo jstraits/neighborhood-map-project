@@ -1,7 +1,5 @@
 //Map variable for Google Maps
-//Array of markers to use later
 var map;
-var allMarkers = [];
 
 //Main function to create Google map
 function initialize() {
@@ -41,7 +39,8 @@ function initialize() {
 function addmapMarkers(m){        
 	// Display multiple markers on a map
 	var infoWindow = new google.maps.InfoWindow();
-
+	var allMarkers =[];
+	
 	function makeInfoWindow(mark){
 	//Creates the DOM element for the marker window
 		var infoWindowContent = '<div class="info_content">';
@@ -211,6 +210,9 @@ function settings(url, ydata){
 		'jsonpCallback' : 'cb',
 		'success' : function(data){
 			makeYelpList(data);
+		},
+		'error' : function(data){
+			alert("An error has occurred!");
 		}
 	});
 }
@@ -277,9 +279,6 @@ function makeYelpList(d){
 		google.maps.event.addDomListener(window, 'load', addmapMarkers(markers));
 	}
 }
-
-//Calls the Google Maps function
-initialize();
 
 //Calls the Yelp function
 yelpCall('48180', 'diners');
