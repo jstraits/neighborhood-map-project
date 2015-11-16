@@ -14,5 +14,6 @@ Resources Used:
 * [Knockout.js](http://knockoutjs.com/)
 * [The Top 10 Mistakes That KnockoutJS Developers Make](https://www.airpair.com/knockout/posts/top-10-mistakes-knockoutjs)
 * [Google Maps Developer Docs](https://developers.google.com/maps/documentation/javascript/tutorial)
-* [Using Knockout with GoogleMaps] (http://www.codeproject.com/Articles/351298/KnockoutJS-and-Google-Maps-binding)
-* [Binding Google Maps Locations with Knockout.js](http://blog.logiticks.com/dynamically-binding-google-maps-location-using-knockout-js/)
+* [Using Knockout with GoogleMaps](http://www.codeproject.com/Articles/351298/KnockoutJS-and-Google-Maps-binding)
+* [Yelp API Documentation](https://www.yelp.com/developers/documentation/v2/overview)
+* [Yelp API Example](http://codepen.io/sheera/pen/IBdLx.html)

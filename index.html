@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<title>Neighborhood Map</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<title>"Downriver" Neighborhood Map</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
 </head>
 <body>
-
-<div id="map">
-        </div>
-        <div id="places" data-bind="foreach: places">
-			<div data-bind="latitude: lat, longitude:lng, map:map, selected:selected">
+		<div class="yelp-list">
+			<div class="search-yelp">
+				<form class="input-group" data-bind="submit: updatedYelp">
+		      <input type="text" class="form-control" data-bind="value: searchItem">
+		      <span class="input-group-btn">
+		        <button class="btn btn-primary" type="button" data-bind="click: updatedYelp">Yelp!</button>
+		      </span>
+		    </form>
 			</div>
-        </div>
+			<ul class="results"></ul>
+		</div>
+			
+		<div id="map-canvas"></div>
 
 
-
-        
-<script type="text/javascript" src="knockout-3.3.0.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwIa1zuHzVqpAnVEj_rDQLXZGJKicb4w">
-</script>
-<script type="text/javascript" src="test.js"></script>
-
+	<script type="text/javascript" src="knockout-3.3.0.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwIa1zuHzVqpAnVEj_rDQLXZGJKicb4w&libraries=places"></script>
+	<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+	<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
