@@ -1,10 +1,9 @@
-"Use strict;"
 //Map variable for Google Maps
 //Array of markers to use later
 var map;
-allMarkers = [];
+var allMarkers = [];
 
-//Main function to create google map
+//Main function to create Google map
 function initialize() {
 	//Changes the map appearance via Google Maps styling features 
 	var styles = [
@@ -89,7 +88,7 @@ function addmapMarkers(m){
 		google.maps.event.addListener(newMark, 'mouseover', (function(mark, i) {
 			return function() {
 				makeInfoWindow(mark);
-			}
+			};
 		})(newMark, i));
 
 		//Uses Google Maps event method to bind a mouse click event to the marker
@@ -98,20 +97,20 @@ function addmapMarkers(m){
 			return function(){
 				makeInfoWindow(mark);
 				toggleBounce(mark, i);
-			}
+			};
 		})(newMark, i));
 	}
 
 	//Animates the marker
 	function toggleBounce(mark, i) {
-		var yelpMarkerDetailUl =  $('.yelp-list').find('ul'),
+		var yelpMarkerDetailUl = $('.yelp-list').find('ul'),
 
 		yelpMarkerDetail = yelpMarkerDetailUl.find('li'),
 		yelpMarkerDetailPos = 212 * i,
 		activeYelpMarkerDetail = yelpMarkerDetail.eq(i);
 
 		//Removes the marker animation attribute if exists        
-		if (mark.getAnimation() != null) {
+		if (mark.getAnimation() !== null) {
 			mark.setAnimation(null);
 			yelpMarkerDetailUl.removeClass('show');
 			activeYelpMarkerDetail.removeClass('active');
@@ -236,7 +235,6 @@ function makeYelpList(d){
 				img = business.image_url,
 				ph = /^\+1/.test(business.display_phone) ? business.display_phone : '',
 				stars = business.rating_img_url,
-				rate = business.rating,
 				num = business.review_count,
 				loc = {
 					lat: business.location.coordinate.latitude,
@@ -291,15 +289,15 @@ function myViewModel() {
 	var self = this;
 	self.searchItem = ko.observable('Diners'); //Starts the search with displaying diners
 
-	//Updates the view model	
+	//Updates the view model
 	self.updatedYelp = function(){
 	//Returns the updated data from the search field
 	//then runs the ajax function to create the yelp list
 		ko.computed(function(){
 			yelpCall('48180', self.searchItem());
 		}, self);
-	}	
-};
+	};
+}
 
 //Calls Knockout
 ko.applyBindings(new myViewModel());
