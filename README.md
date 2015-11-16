@@ -4,6 +4,7 @@ Front-End Web Developer Nanodegree Project 5: Neighborhood Map
 How to View:
 ------------
 To view locally, click on index.html to open.
+To view online, go to [http://jstraits.github.io/neighborhood-map-project/](http://jstraits.github.io/neighborhood-map-project/)
 
 
 Resources Used:
