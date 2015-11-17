@@ -40,13 +40,16 @@ function addmapMarkers(m){
 	// Display multiple markers on a map
 	var infoWindow = new google.maps.InfoWindow();
 	var allMarkers =[];
+	var mark;
 	
 	function makeInfoWindow(mark){
 	//Creates the DOM element for the marker window
 		var infoWindowContent = '<div class="info_content">';
-		infoWindowContent += '<h4>' + mark.title + '</h4>';
-		infoWindowContent += '<p class="review"><img src="' + mark.pic + '">' + mark.blurb + '</p>';
-		infoWindowContent += '</div>';
+		if(mark !== undefined){ 
+			infoWindowContent += '<h4>' + mark.title + '</h4>';
+			infoWindowContent += '<p class="review"><img src="' + mark.pic + '">' + mark.blurb + '</p>';
+			infoWindowContent += '</div>';
+		}
 
 	//Takes above infoWindowContent and sets the content of the marker window
 	infoWindow.setContent(String(infoWindowContent));
@@ -251,6 +254,7 @@ function makeYelpList(d){
 			//Creates the DOM object
 			var makeEl = '<li><div class="heading row"><p class="col-sm-5 img-container">';
 			
+			if (result !== undefined){
 			makeEl += '<img src="' + stars + '" height=17 width=84 alt="Yelp Rating">';
 			makeEl += '<img src="' + img + '" height=120 width=120 class="img-thumbnail">';
 			makeEl += '<div class="col-sm-7">';
@@ -259,7 +263,7 @@ function makeYelpList(d){
 			makeEl += '<p><strong>' + ph + '</strong></p>';
 			makeEl += '<p>' + num + ' Reviews' + '</p>';
 			makeEl += '</div></div></li>';
-			
+			}
 			//Adds the object to the el variable
 			el += makeEl;
 
