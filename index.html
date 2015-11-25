@@ -12,22 +12,36 @@
 <body>
 		<div class="yelp-list">
 			<div class="search-yelp">
-				<form class="input-group" data-bind="submit: updatedYelp">
-		      <input type="text" class="form-control" data-bind="value: searchItem">
-		      <span class="input-group-btn">
-		        <button class="btn btn-primary" type="button" data-bind="click: updatedYelp">Yelp!</button>
-		      </span>
-		    </form>
+				<form class ="input-group" data-bind="submit: searchSubmit">
+					<input class="form-control" data-bind="value: searchWord" placeholder="Search">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="submit"><span>Search</span></button>
+					</span>
+				</form>
 			</div>
-			<ul class="results"></ul>
+			<ul class="results" data-bind="foreach: markers,">
+				<li data-bind="visible: listVisible, click: $parent.setActiveLocation">
+					<div class="heading row">
+						<p class="col-sm-5 img-container">
+							<img data-bind="attr:{src: stars}" height="17" width="84" alt="Yelp Rating">
+							<img data-bind="attr:{src: image}" height="17" width="84" alt="Yelp Rating">
+							<div class="col-sm-7">
+								<h4 data-bind="text: name"></h4>
+								<span data-bind="text: address"></span>
+								<p><strong data-bind="text: phone"></strong></p>
+								<p data-bind="text: numRev"></p>
+							</div>
+						</p>
+					</div>
+				</li>
+			</ul>
 		</div>
 			
 		<div id="map-canvas"></div>
 
-
+	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwIa1zuHzVqpAnVEj_rDQLXZGJKicb4w"></script>
 	<script type="text/javascript" src="knockout-3.3.0.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwIa1zuHzVqpAnVEj_rDQLXZGJKicb4w&libraries=places&callback=initialize"></script>
 	<script src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
 	<script src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
 	<script type="text/javascript" src="main.js"></script>
