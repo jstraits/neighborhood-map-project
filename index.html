@@ -13,13 +13,13 @@
 		<div class="yelp-list">
 			<div class="search-yelp">
 				<form class ="input-group" data-bind="submit: searchSubmit">
-					<input class="form-control" data-bind="value: searchWord" placeholder="Search">
+					<input class="form-control" data-bind="value: searchWord, valueUpdate: 'afterkeydown', event: {keyup: searchSubmit}" placeholder="Search">
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="submit"><span>Search</span></button>
 					</span>
 				</form>
 			</div>
-			<ul class="results" data-bind="foreach: markers,">
+			<ul data-bind="foreach: markers">
 				<li data-bind="visible: listVisible, click: $parent.setActiveLocation">
 					<div class="heading row">
 						<p class="col-sm-5 img-container">

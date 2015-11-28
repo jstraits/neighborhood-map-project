@@ -168,7 +168,6 @@ function myViewModel() {
     			(name.indexOf(word) === -1) ? marker.listVisible(false) : marker.listVisible(true);
     		});
     	});
-    	self.searchWord("");
     };
 }
 
